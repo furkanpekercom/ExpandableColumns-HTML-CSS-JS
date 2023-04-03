@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --bg-color: #00000056;
+    --hover-width: 70%;
+    --other-width: 30%;
+    --speed: 1000ms;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    color: #fff;
+}
+
+.split.left{
+    left: 0;
+    
+    background: no-repeat center/cover url('https://lavinya.net/wp-content/uploads/2022/11/4c62ba-manzara-gol-lake-landscape-scaled.jpeg');
+}
+
+.split.left::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+.split.right{
+    right: 0;
+    background:no-repeat center/cover url('https://i.pinimg.com/originals/64/54/a6/6454a67eaa3758427a9bfae5f7c56114.jpg') ;
+}
+
+.split.right::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+h1{
+    font-size: 3em;
+    color: #fff;
+    left: 50%;
+    top: 20%;
+    position: absolute;
+    transform: translateX(-50%);
+    text-shadow: 3px 3px 10px rgba(0,0,0,1); 
+}
+
+.btn{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #ffffff57;
+    padding: 10px 15px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,1); 
+}
+
+.split.left .btn:hover{
+    background-color: #000;
+    transition: 0.6s ease;
+    border-color: #0000003a;
+}
+
+.split.right .btn:hover{
+    background-color: #000;
+    transition: 0.6s ease;
+    border-color:  #0000003a;;
+}
+
+.hover-left .left{
+    width: var(--hover-width);
+}
+
+.hover-left .right{
+    width: var(--other-width);
+}
+
+.hover-right .right{
+    width: var(--hover-width);
+}
+
+.hover-right .left{
+    width: var(--other-width);
+}
+
+.split.right, .split.left, .split.right::before, .split.left::before{
+    transition: all var(--speed) ease-in-out;
+}
+
+@media (max-width : 1000px){
+    h1{
+        font-size: 30px;
+    }
+}
